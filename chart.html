@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Heat Map Chart</title>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-heatmap.min.js"></script>
+    <style>
+      html, body, #container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      anychart.onDocumentReady(function () {
+
+        // create the data 
+        var data = [
+          { x: "cp", y: "cp", heat: 1 },
+          { x: "cp", y: "trestbps", heat: 0.691 },
+          { x: "cp", y: "chol", heat: 0.735 },
+          { x: "cp", y: "fbs", heat: 0.731 },
+          { x: "cp", y: "restecg", heat: 0.585 },
+          { x: "cp", y: "thalach", heat: 0.498 },
+		  { x: "cp", y: "exang", heat: 0.498 },
+		   { x: "trestbps", y: "cp", heat: 0.654 },
+          { x: "trestbps", y: "trestbps", heat: 1 },
+          { x: "trestbps", y: "chol", heat: 0.735 },
+          { x: "trestbps", y: "fbs", heat: 0.731 },
+          { x: "trestbps", y: "restecg", heat: 0.585 },
+          { x: "trestbps", y: "thalach", heat: 0.498 },
+		  { x: "trestbps", y: "exang", heat: 0.498 },
+		   { x: "chol", y: "cp", heat: 0.654 },
+          { x: "chol", y: "trestbps", heat: 0.475 },
+          { x: "chol", y: "chol", heat: 1 },
+          { x: "chol", y: "fbs", heat: 0.731 },
+          { x: "chol", y: "restecg", heat: 0.585 },
+          { x: "chol", y: "thalach", heat: 0.498 },
+		  { x: "chol", y: "exang", heat: 0.498 },
+		  { x: "fbs", y: "cp", heat: 0.654 },
+          { x: "fbs", y: "trestbps", heat: 0.588 },
+          { x: "fbs", y: "chol", heat: 0.735 },
+          { x: "fbs", y: "fbs", heat: 1 },
+          { x: "fbs", y: "restecg", heat: 0.585 },
+          { x: "fbs", y: "thalach", heat: 0.498 },
+		  { x: "fbs", y: "exang", heat: 0.498 },
+		   { x: "restecg", y: "cp", heat: 0.654 },
+          { x: "restecg", y: "trestbps", heat: 0.475 },
+          { x: "restecg", y: "chol", heat: 0.8554 },
+          { x: "restecg", y: "fbs", heat: 0.731 },
+          { x: "restecg", y: "restecg", heat: 1 },
+          { x: "restecg", y: "thalach", heat: 0.498 },
+		  { x: "restecg", y: "exang", heat: 0.498 },
+		  { x: "thalach", y: "cp", heat: 0.654 },
+          { x: "thalach", y: "trestbps", heat: 0.588 },
+          { x: "thalach", y: "chol", heat: 0.735 },
+          { x: "thalach", y: "fbs", heat: 0.5654 },
+          { x: "thalach", y: "restecg", heat: 0.585 },
+          { x: "thalach", y: "thalach", heat: 1 },
+		  { x: "thalach", y: "exang", heat: 0.498 },
+		   { x: "exang", y: "cp", heat: 0.654 },
+          { x: "exang", y: "trestbps", heat: 0.588 },
+          { x: "exang", y: "chol", heat: 0.735 },
+          { x: "exang", y: "fbs", heat: 0.5654 },
+          { x: "exang", y: "restecg", heat: 0.585 },
+          { x: "exang", y: "thalach", heat: 0.86 },
+		  { x: "exang", y: "exang", heat: 1 },
+           
+          
+        ];        
+        
+        // create the chart and set the data
+        chart = anychart.heatMap(data);
+        
+        // set the chart title
+        chart.title(" Heart Disease ");
+        
+        // create and configure the color scale.
+        var customColorScale = anychart.scales.linearColor();
+        customColorScale.colors(["#ACE8D4", "#00726A"]);
+        
+        // set the color scale as the color scale of the chart
+        chart.colorScale(customColorScale);
+        
+        // set the container id
+        chart.container("container");
+        
+        // initiate drawing the chart
+        chart.draw();
+        
+      });
+    </script>
+  </body>
+</html>
